@@ -1,0 +1,99 @@
+﻿@using OrderCancelling.Resources;
+@using OrderCancelling.Web.Models;
+@using OrderCancelling.Web.Infrastructure.Enums;
+
+@model Order
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="homeIndexContainer">
+</div>
+
+<script id="homeIndexTemplate" type="text/x-handlebars-template">
+    <div class="header">
+        <h2 class="header__title">
+            @Resources.EditOrder
+        </h2>
+        <h6 class="header__sub-title">
+            @Resources.OrderId: @Model.Id
+        </h6>
+    </div>
+
+    <div class="cancel-order row">
+        <button class="btn cancel-order__cancel col-sm-4" {{#if orderCancelEnabled}}
+            disabled
+        {{/if}}>
+            @Resources.CancelOrder
+        </button>
+        <a  class="btn cancel-order__cancel-full-partial col-sm-4"
+            href="https://jumbo2017.staginglh.com/request-return/" {{#if orderCancelFullEnabled}}
+            disabled
+        {{/if}}>
+            @Resources.Full / @Resources.PartialOrderReturn
+        </a>
+    </div>
+
+    {{#if orderIsSent}}
+        <div class="alert row">
+            <div class="alert__warning col-sm-1">
+                <i class="glyphicon glyphicon-warning-sign glyphicon-align-center"></i>
+            </div>
+
+            <div class="alert__info col-sm-11">
+                <strong>@Resources.ProcessedOrderWarning</strong>
+                <p>@Resources.ProcessedOrderWarningDescriptor</p>
+            </div>
+        </div>
+    {{/if}}
+</script>
+
+<script>
+    var model = @Html.Raw(Json.Encode(Model));
+    model.orderCancelEnabled = model.Status == @((int)OrderStatus.PendingPayment) || model.Status == @((int)OrderStatus.Processing);
+    model.orderCancelFullEnabled = model.Status == @((int)OrderStatus.Delivered);
+    model.orderIsSent = model.Status == @((int)OrderStatus.Sent);
+
+    renderTemplate('homeIndex', model);
+</script>
+
+<style scoped>
+    h2,
+    h6 {
+        text-align: center;
+    }
+
+    .header {
+        padding-bottom: 50px;
+    }
+
+    .header__title {
+        text-transform: uppercase;
+        padding-bottom: 25px;
+    }
+
+    .glyphicon-warning-sign {
+        font-size: 50px;
+    }
+
+    .cancel-order {
+        display: flex;
+        justify-content: space-around;
+        padding-bottom: 50px;
+    }
+
+    .cancel-order__cancel {
+        background-color: #00B4F1;
+        color: white;
+    }
+
+    .cancel-order__cancel-full-partial {
+        background-color: #8CDCF9;
+        color: white;
+    }
+
+    .alert {
+        background-color: #FFF6ED;
+        color: #F68B20;
+    }
+</style>
