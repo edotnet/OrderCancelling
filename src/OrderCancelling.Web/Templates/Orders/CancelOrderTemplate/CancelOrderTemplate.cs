@@ -32,6 +32,10 @@ namespace OrderCancelling.Web.Templates.Orders
                 Resources.DelayedOrder,
                 Resources.ProductsOnOtherShop,
                 Resources.Other,
+                Resources.MoneyWillBeRefunded,
+                Resources.MoneyNotTransfered,
+                Resources.TransferNotUpdated,
+                Resources.CancelOrder
             };
 
             var result = template(viewModel);

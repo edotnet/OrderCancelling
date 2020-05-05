@@ -31,7 +31,7 @@ namespace OrderCancelling.Web.Controllers
             return Content(html);
         }
 
-        public ActionResult Contact()
+        public ActionResult ThankYou()
         {
             ViewBag.Message = "Your contact page.";
 

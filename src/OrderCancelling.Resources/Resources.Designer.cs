@@ -97,6 +97,24 @@ namespace OrderCancelling.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have not transferred the money.
+        /// </summary>
+        public static string MoneyNotTransfered {
+            get {
+                return ResourceManager.GetString("MoneyNotTransfered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The money will be refunded to the credit card (/paypal account) you used to pay for this order.
+        /// </summary>
+        public static string MoneyWillBeRefunded {
+            get {
+                return ResourceManager.GetString("MoneyWillBeRefunded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OrderId.
         /// </summary>
         public static string OrderId {
@@ -147,6 +165,15 @@ namespace OrderCancelling.Resources {
         public static string ProductsOnOtherShop {
             get {
                 return ResourceManager.GetString("ProductsOnOtherShop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have placed the transfer, but our system has not yet been updated by the bank about this transfer.
+        /// </summary>
+        public static string TransferNotUpdated {
+            get {
+                return ResourceManager.GetString("TransferNotUpdated", resourceCulture);
             }
         }
     }

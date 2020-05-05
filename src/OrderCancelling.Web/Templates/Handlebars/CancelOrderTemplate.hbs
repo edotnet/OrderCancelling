@@ -2,9 +2,9 @@
     <link rel="stylesheet" href="/Content/styles-bootstrap.css">
     <link rel="stylesheet" href="/Templates/Orders/CancelOrderTemplate/CancelOrderTemplate.css">
 
-    <form>
-        <div class="container">
-            <div class="select-reason">
+    <form id="cancelOrderForm" class="container">
+        <section>
+            <div id="select-reason-radios" class="select-reason">
                 <div class="radio-wrapper">
                     <input type="radio" id="delayed" name="cancel-reason" checked value="1">
                     <label for="delayed">{{DelayedOrder}}</label>
@@ -18,38 +18,40 @@
                     <label for="other">{{Other}}</label>
                 </div>
             </div>
-            <textarea id="other-description"></textarea>
-        </div>
+            <textarea id="other-description" class="d-none"></textarea>
+        </section>
         {{#if NotBankTrasfer}}
         <div class="alert success">
-            The money will be refunded to the credit card (/paypal account) you used to pay for this order
+            {{MoneyWillBeRefunded}}
         </div>
         {{else}}
-        asd
         {{#if IsPending}}
         {{> ReturnPage}}
         {{else}}
-        <div class="container">
+        <section>
             <div class="select-reason">
                 <div class="radio-wrapper">
                     <input type="radio" id="not-transfered" name="not-paid-reason" checked value="0">
-                    <label for="not-transfered">You have not transferred the money</label>
+                    <label for="not-transfered">{{MoneyNotTransfered}}</label>
                 </div>
                 <div class="radio-wrapper">
                     <input type="radio" id="placed-transfer" name="not-paid-reason" value="1">
                     <label for="placed-transfer">
-                        You have placed the transfer, but our system has not yet been updated by the bank about this transfer
+                        {{TransferNotUpdated}}
                     </label>
                 </div>
             </div>
             <div id="bank-not-updated" class="iban d-none">
                 {{> ReturnPage}}
             </div>
-        </div>
+        </section>
         {{/if}}
         {{/if}}
-    </form>
 
+        <section>
+            <button id="cancelOrderFormSubmit" type="submit" class="btn btn-success">{{CancelOrder}}</button>
+        </section>
+    </form>
 </div>
 
 <script src="/Scripts/jquery-3.4.1.min.js"></script>

@@ -129,6 +129,12 @@
   <data name="Full" xml:space="preserve">
     <value>Full</value>
   </data>
+  <data name="MoneyNotTransfered" xml:space="preserve">
+    <value>You have not transferred the money</value>
+  </data>
+  <data name="MoneyWillBeRefunded" xml:space="preserve">
+    <value>The money will be refunded to the credit card (/paypal account) you used to pay for this order</value>
+  </data>
   <data name="OrderId" xml:space="preserve">
     <value>OrderId</value>
   </data>
@@ -146,5 +152,8 @@
   </data>
   <data name="ProductsOnOtherShop" xml:space="preserve">
     <value>Found products on other eshop</value>
+  </data>
+  <data name="TransferNotUpdated" xml:space="preserve">
+    <value>You have placed the transfer, but our system has not yet been updated by the bank about this transfer</value>
   </data>
 </root>
