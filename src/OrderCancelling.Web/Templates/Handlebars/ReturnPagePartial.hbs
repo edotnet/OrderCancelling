@@ -1,0 +1,102 @@
+﻿<div class="request-return-page">
+    <link rel="stylesheet" href="/Content/styles-requestReturn.css">
+    <link rel="stylesheet" href="/Content/requestReturn.css">
+
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/">
+                    <img src="{{LogoUrl}}" alt="logo">
+                </a>
+            </div>
+            <h1 class="title">
+                {{RF_ValidationForm_Title}}
+            </h1>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="js-return-order-form x-loading hidden-form">
+
+                <div class="step-1">
+                    <div class="description">
+                        {{{RF_ValidationForm_IntroText1}}}
+                        <blockquote><i>{{RF_ValidationForm_IntroText2}}</i></blockquote>
+                    </div>
+
+                    <form class="js-contactInfo-ValidationForm">
+                        <div class="form-error js-not-found-error" style="display: none"><span class="font-icon icon-info"></span>{{RF_ValidationForm_ErrorText}}</div>
+                        <div class="form-row secondary">
+                            <div class="label-wrapper">
+                                <label for="order-id" class="input-label">{{RF_ValidationForm_CodeTitle}}</label>
+                            </div>
+                            <div class="input-wrapper">
+                                <input id="order-id" type="text" value="" class="form-control js-return-orderCode">
+                                <div class="tooltip-info-wrapper">
+                                    <div class="info-btn"><span class="text">i</span></div>
+                                    <div class="info-tooltip">
+                                        <div class="inner-wrapper js-translator" data-key="_ReturnOrderCodeMsg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="error-wrapper">
+                                <span class="validator js-translator" data-key="_ReturnOrderCodeRequiredMsg"></span>
+                            </div>
+
+                        </div>
+                        <div class="form-row secondary">
+                            <div class="label-wrapper">
+                                <label for="order-telephone" class="input-label">{{RF_ValidationForm_Phone}}</label>
+                            </div>
+                            <div class="input-wrapper">
+                                <input id="order-telephone" type="text" value="" class="form-control js-return-phone">
+                                <div class="tooltip-info-wrapper">
+                                    <div class="info-btn"><span class="text">i</span></div>
+                                    <div class="info-tooltip">
+                                        <div class="inner-wrapper js-translator" data-key="_ReturnOrderPhoneMsg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="error-wrapper">
+                                <span class="validator js-translator" data-key="_ReturnOrderPhoneRequiredMsg"></span>
+                            </div>
+                        </div>
+                        {{#each @root.PageViewModel.Consents}}
+                        <div class="form-row consent checkbox" {{#if IsMandatory}} data-required{{/if}}>
+                            <div class="checkbox-wrapper">
+                                <input name="{{ConsentTypeCode}}" type="checkbox" id="{{ConsentTypeCode}}" />
+                                <label for="{{ConsentTypeCode}}">{{{Intro}}} <a class="view-terms" href="#{{ConsentTypeCode}}Id">{{MoreText}}</a></label>
+                            </div>
+                            {{#if IsMandatory}}
+                            <div class="error-wrapper">
+                                <span class="validator {{ConsentTypeCode}}-required">{{RequiredText}}</span>
+                            </div>
+                            {{/if}}
+
+                            <div style="display: none;">
+                                <div id="{{ConsentTypeCode}}Id" class="terms-pop-up dynamic-content">
+                                    <div class="title-container">
+                                        <h1 class="title">{{Title}}</h1>
+                                    </div>
+                                    <div class="terms-content">{{{MainContent}}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+
+                        <div class="form-group">
+                            <input type="button" value="{{RF_ValidationForm_Next}}" class="input-button btn js-submit-order-validate-contactInfo" />
+                        </div>
+                        <div class="js-loader"><span></span></div>
+                    </form>
+                </div>
+
+                <div class="js-return-order-edit-form">
+                    <div class="js-loader"><span></span></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

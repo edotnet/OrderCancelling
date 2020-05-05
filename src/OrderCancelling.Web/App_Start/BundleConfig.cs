@@ -21,10 +21,6 @@ namespace OrderCancelling.Web
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/handlebars")
-                .Include("~/Scripts/handlebars-v1.3.0.js")
-                .Include("~/Scripts/handlebars-helpers.js"));
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));

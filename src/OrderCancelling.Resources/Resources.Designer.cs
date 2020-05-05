@@ -70,6 +70,15 @@ namespace OrderCancelling.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Order is delayed.
+        /// </summary>
+        public static string DelayedOrder {
+            get {
+                return ResourceManager.GetString("DelayedOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Order.
         /// </summary>
         public static string EditOrder {
@@ -97,6 +106,15 @@ namespace OrderCancelling.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string Other {
+            get {
+                return ResourceManager.GetString("Other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Partial Order Return.
         /// </summary>
         public static string PartialOrderReturn {
@@ -120,6 +138,15 @@ namespace OrderCancelling.Resources {
         public static string ProcessedOrderWarningDescriptor {
             get {
                 return ResourceManager.GetString("ProcessedOrderWarningDescriptor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Found products on other eshop.
+        /// </summary>
+        public static string ProductsOnOtherShop {
+            get {
+                return ResourceManager.GetString("ProductsOnOtherShop", resourceCulture);
             }
         }
     }

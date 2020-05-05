@@ -1,0 +1,52 @@
+﻿<div id="homeIndexContainer">
+    <link rel="stylesheet" href="/Content/styles-bootstrap.css">
+    <link rel="stylesheet" href="/Templates/Orders/IndexTemplate/IndexTemplate.css">
+
+    <div class="header">
+        <h2 class="header__title">
+            {{EditOrder}}
+        </h2>
+        <h6 class="header__sub-title" >
+            {{OrderId}}: + {{Id}}
+        </h6>
+    </div>
+
+    <div class="cancel-order row"> 
+        {{#if orderCancelEnabled}}
+            <a role="button" class="btn cancel-order__cancel-full-partial col-sm-4"
+                href="/order/cancelOrderAction?orderId={{Id}}">
+                    {{CancelOrder}}
+            </a>
+        {{else}}
+            <a role="button" class="btn cancel-order__cancel-full-partial col-sm-4"
+                href="/"
+                onClick="return false;">
+                    {{CancelOrder}}
+            </a>
+        {{/if}}
+        {{#if orderCancelFullEnabled}}
+            <a role="button" class="btn cancel-order__cancel-full-partial col-sm-4"
+                href="https://jumbo2017.staginglh.com/request-return/">
+                    {{Full}} / {{PartialOrderReturn}}
+            </a>
+        {{else}}
+            <a role="button" class="btn cancel-order__cancel-full-partial col-sm-4"
+                href="/"
+                onClick="return false;">
+                    {{Full}} / {{PartialOrderReturn}}
+            </a>
+        {{/if}}
+    </div>
+    {{#if orderSent}}
+        <div class="alert row" >
+            <div class="alert__warning col-sm-1" >
+                <i class="glyphicon glyphicon-warning-sign glyphicon-align-center" ></i>
+            </div>
+
+            <div class="alert__info col-sm-11" >
+                <strong>{{ProcessedOrderWarning}}</strong>
+                <p>{{ProcessedOrderWarningDescriptor}}</p>
+            </div>
+        </div>
+    {{/if}}
+</div>

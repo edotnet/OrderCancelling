@@ -120,6 +120,9 @@
   <data name="CancelOrder" xml:space="preserve">
     <value>Cancel Order</value>
   </data>
+  <data name="DelayedOrder" xml:space="preserve">
+    <value>Order is delayed</value>
+  </data>
   <data name="EditOrder" xml:space="preserve">
     <value>Edit Order</value>
   </data>
@@ -129,6 +132,9 @@
   <data name="OrderId" xml:space="preserve">
     <value>OrderId</value>
   </data>
+  <data name="Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
   <data name="PartialOrderReturn" xml:space="preserve">
     <value>Partial Order Return</value>
   </data>
@@ -137,5 +143,8 @@
   </data>
   <data name="ProcessedOrderWarningDescriptor" xml:space="preserve">
     <value>However, the moment our system is updated by the courier company that you have received your order, you will be able to &lt;strong&gt;Return your products&lt;/strong&gt;, (either all ot some of them).</value>
+  </data>
+  <data name="ProductsOnOtherShop" xml:space="preserve">
+    <value>Found products on other eshop</value>
   </data>
 </root>
